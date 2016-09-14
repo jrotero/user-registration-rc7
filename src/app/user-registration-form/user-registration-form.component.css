@@ -1,0 +1,13 @@
+.error-container span { display: none; }
+
+.error-container > span:first-child { display: block; }
+
+.has-error-mismatch .checkbox, .has-error-mismatch .checkbox-inline, .has-error-mismatch .control-label, .has-error-mismatch .help-block, .has-error-mismatch .radio, .has-error-mismatch .radio-inline, .has-error-mismatch.checkbox label, .has-error-mismatch.checkbox-inline label, .has-error-mismatch.radio label, .has-error-mismatch.radio-inline label {
+  color: #a94442;
+}
+
+.has-error-mismatch .form-control {
+  border-color: #a94442;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+}
