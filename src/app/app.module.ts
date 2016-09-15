@@ -6,6 +6,7 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
 import { PrincessPeachService } from './shared/validators/princess-peach.service';
+import { ProfileOptionsService } from './shared/services/profile-options.service';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { PrincessPeachService } from './shared/validators/princess-peach.service
     FormsModule,
     HttpModule
   ],
-  providers: [PrincessPeachService],
+  providers: [PrincessPeachService, ProfileOptionsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

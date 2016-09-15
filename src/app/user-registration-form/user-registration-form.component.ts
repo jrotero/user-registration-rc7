@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, Validators, FormGroup} from "@angular/forms";
-import {PrincessPeachService} from "../shared/validators/princess-peach.service";
-import {User} from "../shared/models/user";
+import { FormBuilder, Validators, FormGroup } from "@angular/forms";
+import { PrincessPeachService } from "../shared/validators/princess-peach.service";
+import { User } from "../shared/models/user";
+import { ProfileOptionsService } from '../shared/services/profile-options.service';
 
 @Component({
   selector: 'app-user-registration-form',
@@ -15,7 +16,7 @@ export class UserRegistrationFormComponent implements OnInit {
   runValidation: boolean;
   user: User;
 
-  constructor(private fb: FormBuilder, private pps: PrincessPeachService){
+  constructor(private fb: FormBuilder, private pps: PrincessPeachService, private options: ProfileOptionsService){
     
     // LEAN AS F@*&
 
@@ -26,13 +27,15 @@ export class UserRegistrationFormComponent implements OnInit {
   	this.form = this.fb.group({
       firstName: ['', this.pps.requiredValidator],
       lastName: ['', this.pps.requiredValidator],
-      addressLine1: [''],
-      addressLine2: [''],
-      addressCity: [''],
-      addressState: [''],
-      addressZip: [''],
-      phoneMobile: [''],
-      phoneHome: [''],
+      address1: [''],
+      address2: [''],
+      address3: [''],
+      city: [''],
+      state: [''],
+      zipCode: [''],
+      country: [''],
+      mobilePhone: [''],
+      homePhone: [''],
       email: ['', Validators.compose([
         this.pps.requiredValidator,
         this.pps.emailValidator
@@ -48,7 +51,12 @@ export class UserRegistrationFormComponent implements OnInit {
       passwordConfirm: ['', Validators.compose([
         this.pps.requiredValidator,
         this.pps.passwordValidator
-      ])]
+      ])],
+
+      language: ['spanish'],
+      organizations: [[]],
+      topics: [[]]
+
     }, {validator: this.pps.matchingFields('email', 'emailConfirm', 'password', 'passwordConfirm')});
   }
 

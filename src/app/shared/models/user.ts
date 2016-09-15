@@ -14,6 +14,11 @@ public email:string;
 public password:string;
 public country:string;
 
+public language:string;
+public organizations:string[];
+public topics:string[];
+
+
 constructor(
 	firstName?:string,
 	lastName?:string,
@@ -27,7 +32,11 @@ constructor(
 	homePhone?:string,
 	email?:string,
 	password?:string,
-	country?:string
+	country?:string,
+
+	language?:string,
+	organizations?:string[],
+	topics?:string[]
     ){
 		this.firstName   = firstName || '';
 		this.lastName    = lastName || '';
@@ -42,6 +51,10 @@ constructor(
 		this.email       = email || '';
 		this.password    = password || '';
 		this.country     = country || '';
+
+		this.language     = language || '';
+		this.organizations     = organizations || [];
+		this.topics     = topics || [];
     }
 
 }
