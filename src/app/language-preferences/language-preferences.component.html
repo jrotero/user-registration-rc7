@@ -1,0 +1,6 @@
+<div class="form-group">
+	<label for="language">Language Preference</label>
+	<select class="form-control max300" id="language" [(ngModel)]="language" (change)="changedValue($event.target.value)">
+		<option *ngFor="let language of languages" value={{language.value}}>{{language.label}}</option>
+	</select>
+</div>

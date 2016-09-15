@@ -33,6 +33,11 @@ export class UserRegistrationFormComponent implements OnInit {
       addressZip: [''],
       phoneMobile: [''],
       phoneHome: [''],
+
+      // add language so language component can hook - sets initial value for select
+      language: ['creole'],
+
+
       email: ['', Validators.compose([
         this.pps.requiredValidator,
         this.pps.emailValidator

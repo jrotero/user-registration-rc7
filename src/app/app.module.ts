@@ -6,11 +6,12 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
 import { PrincessPeachService } from './shared/validators/princess-peach.service';
+import { LanguagePreferencesComponent } from './language-preferences/language-preferences.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserRegistrationFormComponent
+    UserRegistrationFormComponent, LanguagePreferencesComponent
   ],
   imports: [
     BrowserModule,
