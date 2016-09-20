@@ -18,6 +18,8 @@ public language:string;
 public organizations:string[];
 public topics:string[];
 
+public alerts:string[];
+
 
 constructor(
 	firstName?:string,
@@ -36,7 +38,9 @@ constructor(
 
 	language?:string,
 	organizations?:string[],
-	topics?:string[]
+	topics?:string[],
+
+	alerts?:string[]
     ){
 		this.firstName   = firstName || '';
 		this.lastName    = lastName || '';
@@ -55,6 +59,8 @@ constructor(
 		this.language     = language || '';
 		this.organizations     = organizations || [];
 		this.topics     = topics || [];
+
+		this.alerts     = alerts || [];
     }
 
 }
