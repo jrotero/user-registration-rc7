@@ -124,6 +124,12 @@ export class ProfileOptionsService {
 
     public alerts = [
     	{
+        id: "10019",
+        label: "Marina 19",
+        description: "",
+        type: "marina"
+      },
+      {
     		id: "10001",
     		label: "Interest Topics",
     		description: "",
@@ -135,6 +141,18 @@ export class ProfileOptionsService {
     		description: "",
     		type: "email"
     	},
+      {
+        id: "10033",
+        label: "Emergency 1",
+        description: "",
+        type: "emergency"
+      },
+      {
+        id: "10034",
+        label: "Emergency 2",
+        description: "",
+        type: "emergency"
+      },
     	{
     		id: "10003",
     		label: "Grants Mail",
@@ -159,6 +177,24 @@ export class ProfileOptionsService {
     		description: "",
     		type: "email"
     	},
+      {
+        id: "10007",
+        label: "Marina 1",
+        description: "",
+        type: "marina"
+      },
+      {
+        id: "10008",
+        label: "Marina 2",
+        description: "",
+        type: "marina"
+      },
+      {
+        id: "10009",
+        label: "Marina 3",
+        description: "",
+        type: "marina"
+      },
     ]
  
 }
