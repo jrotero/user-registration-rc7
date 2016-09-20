@@ -16,13 +16,10 @@ export class UserRegistrationFormComponent implements OnInit {
   runValidation: boolean;
   user: User;
 
-  constructor(private fb: FormBuilder, private pps: PrincessPeachService, private options: ProfileOptionsService){
+  constructor(private fb: FormBuilder, private pps: PrincessPeachService, public options: ProfileOptionsService){
     
-    // LEAN AS F@*&
-
   }
-
-
+ 
   buildForm(){
   	this.form = this.fb.group({
       firstName: ['', this.pps.requiredValidator],
@@ -55,7 +52,8 @@ export class UserRegistrationFormComponent implements OnInit {
 
       language: ['spanish'],
       organizations: [[]],
-      topics: [[]]
+      topics: [[]],
+      alerts: [[]]
 
     }, {validator: this.pps.matchingFields('email', 'emailConfirm', 'password', 'passwordConfirm')});
   }
@@ -87,17 +85,13 @@ export class UserRegistrationFormComponent implements OnInit {
 
   updateUser(){
 
-    //alert('boom!');
+    this.user.firstName = 'Francisco';
 
-    this.user.firstName = 'Jorge';
-    //this.buildForm();
-
-   }
-
+  }
 
   ngOnInit() {
 
-    this.user = new User('Jose','Otero');
+    this.user = new User('Jorge','Fiallega','','','','','','','','','','','','',[],[],[]);
 
   	this.buildForm();
 
@@ -107,7 +101,7 @@ export class UserRegistrationFormComponent implements OnInit {
     // set initial flag to hold validation ---
     this.runValidation = false;
 
-    console.log(this.form);
+    //console.log(this.form);
 
   }
 
