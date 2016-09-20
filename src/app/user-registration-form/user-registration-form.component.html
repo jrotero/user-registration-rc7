@@ -185,10 +185,7 @@
 
         <div class="radio-pref">
 
-        <div class="checkbox" *ngFor="let alert of options.alerts">
-          <label>{{alert.label}} <input type="checkbox" value={{alert.id}}></label>
-        </div>
-
+        <checkbox-group formControlName="alerts" selectType="emergency"></checkbox-group>
 
         </div>
 
@@ -333,7 +330,6 @@
 
   </form>
 
-
 <hr class="section">
 
 <div class="row">
@@ -349,8 +345,6 @@
   </div>
 
 </div>
-
-
 
 
 </div> <!-- /container -->
