@@ -62,8 +62,6 @@ export class CheckboxGroupComponent implements ControlValueAccessor {
 
 	ngOnInit() {
 
-		// grab user object (wasn't sure how to grab existing one from parent component so I made a new one) ---
-		this.user = new User('','','','','','','','','','','','','','',[],[],['10004','10005','10001','10007']);
 
 		// loop over ALL options returned by alerts service ---
 		this.allAlerts.forEach((item, index) => {
@@ -71,28 +69,7 @@ export class CheckboxGroupComponent implements ControlValueAccessor {
 			// only push matching alert type into display array ---
 			if (item.type == this.selectType){
 			
-			this.cbOptions.push(item);
-
-				// check against existing user alert selections and extend properties with 'checked' ---
-				for (let alertId of this.user.alerts) {
-
-					if (item.id == alertId) {
-
-						this.cbOptions[this.cbOptions.length - 1].checked = true;
-
-						// if checked - push to checkbox array for initial value on formGroup ---
-						this.selOptions.push(item.id);
-
-						// break out of the loop on match so checked property is not overwritten ---
-						break
-
-					} else {
-
-						this.cbOptions[this.cbOptions.length - 1].checked = false;
-
-					};
-
-				}
+				this.cbOptions.push(item);
 
 			}
 
@@ -100,17 +77,24 @@ export class CheckboxGroupComponent implements ControlValueAccessor {
 
 	}
 
-	// call this hook to set the form value for alerts after content initializes ---
-	ngAfterContentInit(){
-
-		this.propagateChange(this.selOptions);
-		
-	}
-
 
 	// control value assessor interface ---
-	writeValue(value: any) {
-		//this.selOptions = value;
+	writeValue(values: any) {
+
+		for (let cbOption of this.cbOptions) {
+
+			if(values.find(x => x == cbOption.id)){
+
+				cbOption.checked = true;
+
+			} else {
+
+				cbOption.checked = false;
+
+			};
+
+		}
+
 	}
 
 	propagateChange = (_: any) => {};

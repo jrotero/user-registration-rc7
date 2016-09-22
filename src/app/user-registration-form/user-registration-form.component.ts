@@ -53,7 +53,7 @@ export class UserRegistrationFormComponent implements OnInit {
       language: ['spanish'],
       organizations: [[]],
       topics: [[]],
-      alerts: [[]]
+      alerts: [this.user.alerts]
 
     }, {validator: this.pps.matchingFields('email', 'emailConfirm', 'password', 'passwordConfirm')});
   }
@@ -91,7 +91,7 @@ export class UserRegistrationFormComponent implements OnInit {
 
   ngOnInit() {
 
-    this.user = new User('Jorge','Fiallega','','','','','','','','','','','','',[],[],[]);
+    this.user = new User('Jorge','Fiallega','','','','','','','','','','','','',[],[],['10004','10005','10001','10007']);
 
   	this.buildForm();
 
