@@ -185,7 +185,11 @@
 
         <div class="radio-pref">
 
-        <checkbox-group formControlName="alerts" selectType="email"></checkbox-group>
+        <checkbox-group formControlName="alertsEmail" [optionsData]="options.alerts.email"></checkbox-group>
+
+        <hr>
+
+        <checkbox-group formControlName="alertsMarina" [optionsData]="options.alerts.marina"></checkbox-group>
 
         </div>
 

@@ -1,3 +1,3 @@
-<div class="checkbox" *ngFor="let cbOption of cbOptions">
-	<label>{{cbOption.label}}<input type="checkbox" name="cbOption[]" value={{cbOption.id}} (change)="checkboxGroupChange($event.target)" [(ngModel)]="cbOption.checked"></label>
+<div class="checkbox" *ngFor="let cbOption of optionsData">
+	<label>{{cbOption.label}}<input type="checkbox" name="cbOption[]" value={{cbOption.id}} [(ngModel)]="cbOption.checked" (ngModelChange)="checkboxGroupChange($event.target)"></label>
 </div>

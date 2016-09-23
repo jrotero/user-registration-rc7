@@ -1,7 +1,7 @@
 import { Component, OnInit, forwardRef, Input } from '@angular/core';
 import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { ProfileOptionsService } from '../shared/services/profile-options.service';
-import { User } from "../shared/models/user";
+
 
 @Component({
   selector: 'checkbox-group',
@@ -17,42 +17,24 @@ import { User } from "../shared/models/user";
 })
 export class CheckboxGroupComponent implements ControlValueAccessor {
 
-
-	@Input() selectType = '';
-
-	// bring in user data ---
-	user: User;
-
-	// all alert options ---
-	allAlerts = [];
-
-	// alerts matching requested 'type' + addition of 'checked' property set based on user data ---
-	cbOptions = [];
+	@Input() optionsData = [];
 	
 	// array of selected options to be pushed back to formGroup ---
 	selOptions = [];
 
-
-	constructor(public options: ProfileOptionsService) {
-		this.allAlerts = options.alerts;
-	}
-
+	constructor() {} // SUPER LEAN!
 
 	checkboxGroupChange(val){
+		
+		this.selOptions = [];
 
-		if (val.checked == true){
+		this.optionsData.forEach((item, index) => {
 
-			this.selOptions.push(val.value);
-
-		} else {
-
-			// checked = false : search for value in array, if found - remove value ---
-			var i = this.selOptions.indexOf(val.value);
-			if(i != -1) {
-				this.selOptions.splice(i, 1);
+			if (item.checked == true){
+				this.selOptions.push(item);
 			}
 
-		};
+		});
 
 		// push values out to formGroup ---
 		this.propagateChange(this.selOptions);
@@ -60,30 +42,15 @@ export class CheckboxGroupComponent implements ControlValueAccessor {
 	}
 
 
-	ngOnInit() {
-
-
-		// loop over ALL options returned by alerts service ---
-		this.allAlerts.forEach((item, index) => {
-
-			// only push matching alert type into display array ---
-			if (item.type == this.selectType){
-			
-				this.cbOptions.push(item);
-
-			}
-
-		});
-
-	}
+	ngOnInit() {}
 
 
 	// control value assessor interface ---
 	writeValue(values: any) {
 
-		for (let cbOption of this.cbOptions) {
+		for (let cbOption of this.optionsData) {
 
-			if(values.find(x => x == cbOption.id)){
+			if(values.find(x => x.id == cbOption.id)){
 
 				cbOption.checked = true;
 
@@ -105,6 +72,5 @@ export class CheckboxGroupComponent implements ControlValueAccessor {
 
 	registerOnTouched() {}
 	// end control value assessor interface ---
-
 
 }
