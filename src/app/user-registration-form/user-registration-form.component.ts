@@ -53,7 +53,10 @@ export class UserRegistrationFormComponent implements OnInit {
       language: ['spanish'],
       organizations: [[]],
       topics: [[]],
-      alerts: [[]]
+      alerts: [this.user.alerts],
+      alertsEmail: [this.user.alerts.email],
+      alertsMarina: [this.user.alerts.marina],
+      alertsEmergency: [this.user.alerts.emergency]
 
     }, {validator: this.pps.matchingFields('email', 'emailConfirm', 'password', 'passwordConfirm')});
   }
@@ -91,7 +94,44 @@ export class UserRegistrationFormComponent implements OnInit {
 
   ngOnInit() {
 
-    this.user = new User('Jorge','Fiallega','','','','','','','','','','','','',[],[],[]);
+    this.user = new User('Jorge','Fiallega','','','','','','','','','','','','',[],[],{
+
+      email: [
+        {
+          id: "10001",
+          label: "Interest Topics",
+          description: ""
+        },
+        {
+          id: "10002",
+          label: "Events Near Me",
+          description: ""
+        },
+        {
+          id: "10006",
+          label: "PortMiami Currents",
+          description: ""
+        }
+      ],
+
+      marina: [
+        {
+          id: "10017",
+          label: "Marina 2",
+          description: ""
+        }
+      ],
+
+      emergency: [
+        {
+          id: "10031",
+          label: "Emergency 2",
+          description: ""
+        }
+      ]
+
+    });
+
 
   	this.buildForm();
 

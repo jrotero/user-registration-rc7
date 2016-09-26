@@ -122,79 +122,78 @@ export class ProfileOptionsService {
     ]
 
 
-    public alerts = [
-    	{
-        id: "10019",
-        label: "Marina 19",
-        description: "",
-        type: "marina"
-      },
-      {
-    		id: "10001",
-    		label: "Interest Topics",
-    		description: "",
-    		type: "email"
-    	},
-    	{
-    		id: "10002",
-    		label: "Events Near Me",
-    		description: "",
-    		type: "email"
-    	},
-      {
-        id: "10033",
-        label: "Emergency 1",
-        description: "",
-        type: "emergency"
-      },
-      {
-        id: "10034",
-        label: "Emergency 2",
-        description: "",
-        type: "emergency"
-      },
-    	{
-    		id: "10003",
-    		label: "Grants Mail",
-    		description: "",
-    		type: "email"
-    	},
-    	{
-    		id: "10004",
-    		label: "Legal Notices",
-    		description: "",
-    		type: "email"
-    	},
-    	{
-    		id: "10005",
-    		label: "Mayor's Week in Review",
-    		description: "",
-    		type: "email"
-    	},
-    	{
-    		id: "10006",
-    		label: "PortMiami Currents",
-    		description: "",
-    		type: "email"
-    	},
-      {
-        id: "10007",
-        label: "Marina 1",
-        description: "",
-        type: "marina"
-      },
-      {
-        id: "10008",
-        label: "Marina 2",
-        description: "",
-        type: "marina"
-      },
-      {
-        id: "10009",
-        label: "Marina 3",
-        description: "",
-        type: "marina"
-      },
-    ]
+    public alerts = {
+
+      email: [
+        {
+          id: "10001",
+          label: "Interest Topics",
+          description: ""
+        },
+        {
+          id: "10002",
+          label: "Events Near Me",
+          description: ""
+        },
+        {
+          id: "10003",
+          label: "Grants Mail",
+          description: ""
+        },
+        {
+          id: "10004",
+          label: "Legal Notices",
+          description: ""
+        },
+        {
+          id: "10005",
+          label: "Mayor's Week in Review",
+          description: ""
+        },
+        {
+          id: "10006",
+          label: "PortMiami Currents",
+          description: ""
+        }
+      ],
+
+      marina: [
+        {
+          id: "10020",
+          label: "Marina 20",
+          description: ""
+        },
+        {
+          id: "10016",
+          label: "Marina 1",
+          description: ""
+        },
+        {
+          id: "10017",
+          label: "Marina 2",
+          description: ""
+        },
+        {
+          id: "10018",
+          label: "Marina 3",
+          description: ""
+        }
+      ],
+
+      emergency: [
+        {
+          id: "10030",
+          label: "Emergency 1",
+          description: ""
+        },
+        {
+          id: "10031",
+          label: "Emergency 2",
+          description: ""
+        }
+      ]
+
+    }
+    
  
 }

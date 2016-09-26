@@ -15,10 +15,14 @@ public password:string;
 public country:string;
 
 public language:string;
-public organizations:string[];
-public topics:string[];
+public organizations:string [];
+public topics:string [];
 
-public alerts:string[];
+public alerts: {
+	email:any [],
+	marina:any [],
+	emergency:any []
+};
 
 
 constructor(
@@ -40,7 +44,11 @@ constructor(
 	organizations?:string[],
 	topics?:string[],
 
-	alerts?:string[]
+	alerts?: {
+		email:any [],
+		marina:any [],
+		emergency:any []
+	}
     ){
 		this.firstName   = firstName || '';
 		this.lastName    = lastName || '';
@@ -60,7 +68,7 @@ constructor(
 		this.organizations     = organizations || [];
 		this.topics     = topics || [];
 
-		this.alerts     = alerts || [];
+		this.alerts     = alerts || {email:[], marina:[], emergency:[]};
     }
 
 }
