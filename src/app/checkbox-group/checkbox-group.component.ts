@@ -1,7 +1,5 @@
 import { Component, OnInit, forwardRef, Input } from '@angular/core';
 import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import { ProfileOptionsService } from '../shared/services/profile-options.service';
-
 
 @Component({
   selector: 'checkbox-group',
