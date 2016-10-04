@@ -21,7 +21,9 @@ public topics:string [];
 public alerts: {
 	email:any [],
 	marina:any [],
-	emergency:any []
+	emergency:any [],
+	recycling:any [],
+	transit:any []
 };
 
 
@@ -47,7 +49,9 @@ constructor(
 	alerts?: {
 		email:any [],
 		marina:any [],
-		emergency:any []
+		emergency:any [],
+		recycling:any [],
+		transit:any []
 	}
     ){
 		this.firstName   = firstName || '';
@@ -68,7 +72,7 @@ constructor(
 		this.organizations     = organizations || [];
 		this.topics     = topics || [];
 
-		this.alerts     = alerts || {email:[], marina:[], emergency:[]};
+		this.alerts     = alerts || {email:[], marina:[], emergency:[], recycling:[], transit:[]};
     }
 
 }
