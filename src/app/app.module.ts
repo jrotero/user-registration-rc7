@@ -8,11 +8,12 @@ import { UserRegistrationFormComponent } from './user-registration-form/user-reg
 import { PrincessPeachService } from './shared/validators/princess-peach.service';
 import { ProfileOptionsService } from './shared/services/profile-options.service';
 import { CheckboxGroupComponent } from './checkbox-group/checkbox-group.component';
+import { AlertGroupComponent } from './alert-group/alert-group.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserRegistrationFormComponent, CheckboxGroupComponent
+    UserRegistrationFormComponent, CheckboxGroupComponent, AlertGroupComponent
   ],
   imports: [
     BrowserModule,
