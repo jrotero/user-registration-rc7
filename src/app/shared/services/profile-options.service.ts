@@ -183,12 +183,28 @@ export class ProfileOptionsService {
       emergency: [
         {
           id: "10030",
-          label: "Emergency 1",
+          label: "Emergency Alerts",
           description: ""
         },
         {
           id: "10031",
-          label: "Emergency 2",
+          label: "Ashley Nicole Valdes Public Safety Alerts",
+          description: ""
+        }
+      ],
+
+      recycling: [
+        {
+          id: "10040",
+          label: "Recycling Pickup Reminder",
+          description: ""
+        }
+      ],
+
+      transit: [
+        {
+          id: "10050",
+          label: "Transit",
           description: ""
         }
       ]
