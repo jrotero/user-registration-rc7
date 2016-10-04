@@ -1,16 +1,16 @@
 /* tslint:disable:no-unused-variable */
 
-import { TestBed, async, inject } from '@angular/core/testing';
-import { ProfileDataService } from './profile-data.service';
+import {TestBed, inject} from "@angular/core/testing";
+import {ProfileDataService} from "./profile-data.service";
 
 describe('Service: ProfileData', () => {
-  beforeEach(() => {
-    TestBed.configureTestingModule({
-      providers: [ProfileDataService]
+    beforeEach(() => {
+        TestBed.configureTestingModule({
+            providers: [ProfileDataService]
+        });
     });
-  });
 
-  it('should ...', inject([ProfileDataService], (service: ProfileDataService) => {
-    expect(service).toBeTruthy();
-  }));
+    it('should ...', inject([ProfileDataService], (service: ProfileDataService) => {
+        expect(service).toBeTruthy();
+    }));
 });

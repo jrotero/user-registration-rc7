@@ -1,13 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormGroup } from "@angular/forms";
-import { PrincessPeachService } from "../shared/validators/princess-peach.service";
-import { User } from "../shared/models/user";
-import { ProfileOptionsService } from '../shared/services/profile-options.service';
+import {Component, OnInit} from "@angular/core";
+import {FormBuilder, Validators, FormGroup} from "@angular/forms";
+import {PrincessPeachService} from "../shared/validators/princess-peach.service";
+import {User} from "../shared/models/user";
+import {ProfileOptionsService} from "../shared/services/profile-options.service";
 
 @Component({
-  selector: 'app-user-registration-form',
-  templateUrl: './user-registration-form.component.html',
-  styleUrls: ['./user-registration-form.component.css']
+    selector: 'app-user-registration-form',
+    templateUrl: './user-registration-form.component.html',
+    styleUrls: ['./user-registration-form.component.css']
 })
 export class UserRegistrationFormComponent implements OnInit {
 
@@ -83,75 +83,76 @@ export class UserRegistrationFormComponent implements OnInit {
       console.log('Validation errors exist');
 
     }
-
   }
 
-  updateUser(){
 
-    this.user.firstName = 'Francisco';
+    updateUser() {
 
-  }
+        this.user.firstName = 'Francisco';
 
-  ngOnInit() {
+    }
 
-    this.user = new User('Jorge','Fiallega','','','','','','','','','','','','',[],[],{
+    ngOnInit() {
 
-      email: [
-        {
-          id: "10001",
-          label: "Interest Topics",
-          description: ""
-        },
-        {
-          id: "10002",
-          label: "Events Near Me",
-          description: ""
-        },
-        {
-          id: "10006",
-          label: "PortMiami Currents",
-          description: ""
-        }
-      ],
+        this.user = new User('Jorge', 'Fiallega', '', '', '', '', '', '', '', '', '', '', '', '', [], [], {
 
-      marina: [
-        {
-          id: "10017",
-          label: "Marina 2",
-          description: ""
-        }
-      ],
+        email: [
+          {
+          id: '10001',
+          label: 'Interest Topics',
+          description: ''
+          },
+          {
+          id: '10002',
+          label: 'Events Near Me',
+          description: ''
+          },
+          {
+          id: '10006',
+          label: 'PortMiami Currents',
+          description: ''
+          }
+        ],
 
-      emergency: [
-        /*{
+        marina: [
+          {
+          id: '10017',
+          label: 'Marina 2',
+          description: ''
+          }
+        ],
+
+        emergency: [
+          /*{
           id: "10031",
           label: "Emergency 2",
           description: ""
-        }*/
-      ], 
+          }*/
+        ], 
 
-      recycling: [
-       /*{
+        recycling: [
+          /*{
           id: "10040",
           label: "Recycling Pickup Reminder",
           description: ""
-        }*/
+          }*/
         ],
 
-      transit: []
+        transit: []
 
-    });
+        });
 
-  	this.buildForm();
 
-    // set up controls object to clean up view ---
-    this.controls = this.form.controls;
+        this.buildForm();
 
-    // set initial flag to hold validation ---
-    this.runValidation = false;
+        // set up controls object to clean up view ---
+        this.controls = this.form.controls;
 
-    //console.log(this.form);
+        // set initial flag to hold validation ---
+        this.runValidation = false;
 
-  }
+        //console.log(this.form);
+
+    }
 
 }
