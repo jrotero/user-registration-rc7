@@ -1,74 +1,80 @@
-import { Component, OnInit, forwardRef, Input } from '@angular/core';
-import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import {Component, forwardRef, Input} from "@angular/core";
+import {ControlValueAccessor, NG_VALUE_ACCESSOR} from "@angular/forms";
 
 @Component({
-  selector: 'checkbox-group',
-  templateUrl: './checkbox-group.component.html',
-  styleUrls: ['./checkbox-group.component.css'],
-  providers: [
-    { 
-      provide: NG_VALUE_ACCESSOR,
-      useExisting: forwardRef(() => CheckboxGroupComponent),
-      multi: true
-    }
-  ]
+    selector: 'checkbox-group',
+    templateUrl: './checkbox-group.component.html',
+    styleUrls: ['./checkbox-group.component.css'],
+    providers: [
+        {
+            provide: NG_VALUE_ACCESSOR,
+            useExisting: forwardRef(() => CheckboxGroupComponent),
+            multi: true
+        }
+    ]
 })
 export class CheckboxGroupComponent implements ControlValueAccessor {
 
-	@Input() optionsData = [];
-	
-	// array of selected options to be pushed back to formGroup ---
-	selOptions = [];
+    @Input() optionsData = [];
 
-	constructor() {} // SUPER LEAN!
+    // array of selected options to be pushed back to formGroup ---
+    selOptions = [];
 
-	checkboxGroupChange(val){
-		
-		this.selOptions = [];
+    constructor() {
+    } // SUPER LEAN!
 
-		this.optionsData.forEach((item, index) => {
+    checkboxGroupChange(val) {
 
-			if (item.checked == true){
-				this.selOptions.push(item);
-			}
+        this.selOptions = [];
 
-		});
+        this.optionsData.forEach((item, index) => {
 
-		// push values out to formGroup ---
-		this.propagateChange(this.selOptions);
+            if (item.checked === true) {
+                this.selOptions.push(item);
+            }
 
-	}
+        });
 
+        // push values out to formGroup ---
+        this.propagateChange(this.selOptions);
 
-	ngOnInit() {}
+    }
 
 
-	// control value assessor interface ---
-	writeValue(values: any) {
+    ngOnInit() {
+    }
 
-		for (let cbOption of this.optionsData) {
 
-			if(values.find(x => x.id == cbOption.id)){
+    // control value assessor interface ---
+    writeValue(values: any) {
 
-				cbOption.checked = true;
+        for (let cbOption of this.optionsData) {
 
-			} else {
+            if (values.find(x => x.id === cbOption.id)) {
 
-				cbOption.checked = false;
+                cbOption.checked = true;
 
-			};
+            } else {
 
-		}
+                cbOption.checked = false;
 
-	}
+            }
+            ;
 
-	propagateChange = (_: any) => {};
+        }
 
-	registerOnChange(fn) {
-		this.propagateChange = fn;
-	}
+    }
 
-	registerOnTouched() {}
-	// end control value assessor interface ---
+    propagateChange = (_: any) => {
+    };
+
+    registerOnChange(fn) {
+        this.propagateChange = fn;
+    }
+
+    registerOnTouched() {
+    }
+
+    // end control value assessor interface ---
 
 }

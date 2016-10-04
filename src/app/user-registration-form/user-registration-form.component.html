@@ -1,354 +1,373 @@
 <div class="container">
-  <form [formGroup]="form" (ngSubmit)="validateInput()">
-
-    <p>&nbsp;</p>
-
-    <h1>User Information</h1>
-
-    <hr class="section">
-
-    <p>&nbsp;</p>
-
-    <div class="row">
-
-      <div class="col-md-6 col-sm-6">
-
-        <div class="row">
-
-          <div class="col-md-6 col-sm-6">
-            <div class="form-group" [ngClass]="{'has-error': runValidation && !controls.firstName.valid}">
-              <label class="control-label" for="fname">First Name *</label>
-              <input type="text" class="form-control" id="fname" [ngModel]="user.firstName" formControlName="firstName">
-        <span class="error-container" *ngIf="runValidation">
-          <span class="help-block" *ngIf="controls.firstName.hasError('required')">This field is required</span>
-        </span>
-            </div>
-          </div>
-
-          <div class="col-md-6 col-sm-6">
-            <div class="form-group" [ngClass]="{'has-error': runValidation && !controls.lastName.valid}">
-              <label class="control-label" for="lname">Last Name *</label>
-              <input type="text" class="form-control" id="lname" [ngModel]="user.lastName" formControlName="lastName">
-        <span class="error-container" *ngIf="runValidation">
-          <span class="help-block" *ngIf="controls.lastName.hasError('required')">This field is required</span>
-        </span>
-            </div>
-          </div>
-
-        </div>
-
-        <hr>
-
-        <div class="form-group">
-          <label class="control-label" for="address1">Address</label>
-          <input type="text" class="form-control" id="address1" [ngModel]="user.address1" formControlName="address1">
-        </div>
-
-        <div class="form-group">
-          <!--<label class="control-label" for="address2">Address 2</label>-->
-          <input type="text" class="form-control" id="address2" [ngModel]="user.address2" formControlName="address2">
-        </div>
-
-        <div class="form-group">
-          <!--<label class="control-label" for="address2">Address 2</label>-->
-          <input type="text" class="form-control" id="address2" [ngModel]="user.address3" formControlName="address3">
-        </div>
-
-
-        <div class="row">
-
-          <div class="col-md-5">
-            <div class="form-group">
-              <label class="control-label" for="city">City</label>
-              <input type="text" class="form-control" id="city" [ngModel]="user.city" formControlName="city">
-            </div>
-          </div>
-
-          <div class="col-md-3 col-sm-4">
-            <div class="form-group">
-              <label class="control-label" for="state">State</label>
-              <select class="form-control" id="state" [ngModel]="user.state" formControlName="state">
-                <option>FL</option>
-                <option>GA</option>
-                <option>SC</option>
-                <option>NC</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="col-md-4 col-sm-4">
-            <div class="form-group">
-              <label class="control-label" for="zip">Zip</label>
-              <input type="text" class="form-control" id="zip" [ngModel]="user.zipCode" formControlName="zipCode">
-            </div>
-          </div>
-
-        </div>
-
-        <hr>
-
-        <div class="row">
-
-          <div class="col-md-6 col-sm-6">
-            <div class="form-group">
-              <label class="control-label" for="mphone">Mobile Phone</label>
-              <input type="text" class="form-control" id="mphone" [ngModel]="user.mobilePhone" formControlName="mobilePhone">
-            </div>
-          </div>
-
-          <div class="col-md-6 col-sm-6">
-            <div class="form-group">
-              <label class="control-label" for="hphone">Home Phone</label>
-              <input type="text" class="form-control" id="hphone" [ngModel]="user.homePhone"  formControlName="homePhone">
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-      <div class="col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1">
-
-        <p class="visible-xs-block">&nbsp;</p>
-
-        <div class="form-group" [ngClass]="{'has-error': runValidation && !controls.email.valid}">
-          <label class="control-label" for="email">Email *</label>
-          <input type="text" class="form-control" id="email" [ngModel]="user.email"  formControlName="email">
-
-
-          <span class="help-block" *ngIf="!runValidation || controls.email.valid">user@example.com</span>
-
-    <span class="error-container" *ngIf="runValidation">
-      <span class="help-block" *ngIf="controls.email.hasError('required')">This field is required</span>
-      <span class="help-block" *ngIf="controls.email.hasError('invalidEmailAddress')">Please enter a valid email address</span>
-    </span>
-        </div>
-
-        <div class="form-group" [ngClass]="{
-  'has-error': runValidation && !controls.emailConfirm.valid,
-  'has-error-mismatch': runValidation && form.hasError('mismatchedEmails')
-  }">
-          <label class="control-label" for="email-confirm">Confirm Email *</label>
-          <input type="text" class="form-control" id="email-confirm" formControlName="emailConfirm">
-    <span class="error-container" *ngIf="runValidation">
-      <span class="help-block" *ngIf="controls.emailConfirm.hasError('required')">This field is required</span>
-      <span class="help-block" *ngIf="controls.emailConfirm.hasError('invalidEmailAddress')">Please enter a valid email address</span>
-      <span class="help-block" *ngIf="runValidation && form.hasError('mismatchedEmails')">Your confirmation email address does not match</span>
-    </span>
-        </div>
-
-        <div class="form-group" [ngClass]="{'has-error': runValidation && !controls.password.valid}">
-          <label class="control-label" for="password">Password *</label>
-          <input type="text" class="form-control" id="password" [ngModel]="user.password"  formControlName="password">
-
-          <span class="help-block" *ngIf="!runValidation || controls.password.valid">(8 to 25 characters)</span>
-
-    <span class="error-container" *ngIf="runValidation">
-      <span class="help-block" *ngIf="controls.password.hasError('required')">This field is required</span>
-      <span class="help-block" *ngIf="controls.password.hasError('invalidPassword')">Your password must have a minimum of 8 characters</span>
-    </span>
-        </div>
-
-        <div class="form-group" [ngClass]="{
-  'has-error': runValidation && !controls.passwordConfirm.valid,
-  'has-error-mismatch': runValidation && form.hasError('mismatchedPasswords')
-  }">
-          <label class="control-label" for="password-confirm">Confirm Password *</label>
-          <input type="text" class="form-control" id="password-confirm" formControlName="passwordConfirm">
-    <span class="error-container" *ngIf="runValidation">
-      <span class="help-block" *ngIf="controls.passwordConfirm.hasError('required')">This field is required</span>
-      <span class="help-block" *ngIf="controls.passwordConfirm.hasError('invalidPassword')">Your password must have a minimum of 8 characters</span>
-      <span class="help-block" *ngIf="runValidation && form.hasError('mismatchedPasswords')">Your confirmation password does not match</span>
-    </span>
-        </div>
+    <form [formGroup]="form" (ngSubmit)="validateInput()">
 
         <p>&nbsp;</p>
 
-      </div>
-
-    </div>
-
-
-    <h2>Content Preferences</h2>
+        <h1>User Information</h1>
 
         <hr class="section">
 
         <p>&nbsp;</p>
 
-<div class="row">
-
-    <div class="col-md-3 col-md-push-0 col-sm-5 col-sm-push-7">
-
-        <h4>Email Subscriptions</h4>
-
-        <hr>
-
-        <div class="radio-pref">
-
-        <checkbox-group formControlName="alertsEmail" [optionsData]="options.alerts.email"></checkbox-group>
-
-        <hr>
-
-        <checkbox-group formControlName="alertsMarina" [optionsData]="options.alerts.marina"></checkbox-group>
-
-        </div>
-
-
-    </div>
-
-
-    <div class="col-md-4 col-md-offset-1 col-md-pull-0 col-sm-6 col-sm-pull-5">
-
-        <p class="visible-xs-block">&nbsp;</p>
-
-        <h4>Mobile Alerts</h4>
-
-        <hr>
-
-        <!--
-        <div class="alert-pref">
-
-        <div class="toggle-container">
-        <div class="toggle-text">Recycling Pickup Reminder</div>
-        <div class="toggle-switch-right">
-        <div class="toggle-switch">
-        <input type="checkbox" ngControl="recyclingReminders" name="" class="toggle-switch-checkbox" id="alert-recycling">
-        <label class="toggle-switch-label" for="alert-recycling"></label>
-        </div>
-        </div>
-        </div>
-
-        <hr>
-
-        <div class="toggle-container">
-        <div class="toggle-text">Transit Rider Alerts</div>
-        <div class="toggle-switch-right">
-        <div class="toggle-switch">
-        <input type="checkbox" ngControl="transitAlerts" name="" class="toggle-switch-checkbox" id="alert-transit" data-target="#modal-transit-options">
-        <!- <input type="checkbox" name="" class="toggle-switch-checkbox" id="alert-transit" data-toggle="modal" data-target="#modal-transit-options">->
-        <label class="toggle-switch-label" for="alert-transit"></label>
-        </div>
-        </div>
-        </div>
-
-        <div class="alert-preferences"><small><a href="#" data-toggle="modal" data-target="#modal-transit-options">Edit Preferences</a></small></div>
-
-        <hr>
-
-        <div class="toggle-container">
-        <div class="toggle-text">Emergency Alerts</div>
-        <div class="toggle-switch-right">
-        <div class="toggle-switch">
-        <input type="checkbox" ngControl="emergencyAlerts" name="" class="toggle-switch-checkbox" id="alert-emergency" data-target="#modal-emergency-options">
-        <!- <input type="checkbox" name="" class="toggle-switch-checkbox" id="alert-emergency" data-toggle="modal" data-target="#modal-emergency-options">->
-        <label class="toggle-switch-label" for="alert-emergency"></label>
-        </div>
-        </div>
-        </div>
-
-        <div class="alert-preferences"><small><a href="#" data-toggle="modal" data-target="#modal-emergency-options">Edit Preferences</a></small></div>
-
-        <hr>
-
-        <div class="toggle-container">
-        <div class="toggle-text">Marina Alerts</div>
-        <div class="toggle-switch-right">
-        <div class="toggle-switch">
-        <input type="checkbox" ngControl="marinaAlerts" name="" class="toggle-switch-checkbox" id="alert-marina" data-target="#modal-marina-options">
-        <!- <input type="checkbox" name="" class="toggle-switch-checkbox" id="alert-marina" data-toggle="modal" data-target="#modal-marina-options">->
-        <label class="toggle-switch-label" for="alert-marina"></label>
-        </div>
-        </div>
-        </div>
-
-        <div class="alert-preferences"><small><a href="#" data-toggle="modal" data-target="#modal-marina-options">Edit Preferences</a></small></div>
-
-        <hr>
-
-        </div>
-
-        -->
-
-    </div>
-
-
-    <div class="col-md-3 col-md-offset-1 col-sm-12">
-
-    <hr class="visible-sm-block">
-
-    <p class="visible-xs-block">&nbsp;</p>
-
-        <div class="form-group">
-          <label for="language">Language Preference</label>
-          <select class="form-control max300" id="language" [ngModel]="user.language"  formControlName="language">
-            <option *ngFor="let language of options.languages" value={{language.value}}>{{language.label}}</option>
-          </select>
-        </div>
-
-        
         <div class="row">
-          <div class="col-md-12 col-sm-6">
 
-        
-        <div class="form-group">
-          <label for="agencies">Organizations of Interest</label>
-          <select multiple class="form-control multi-height" id="organizations" [ngModel]="user.organizations"  formControlName="organizations">
-            <option *ngFor="let org of options.organizations" value={{org.mduid}}>{{org.name}}</option>
-          </select>
+            <div class="col-md-6 col-sm-6">
+
+                <div class="row">
+
+                    <div class="col-md-6 col-sm-6">
+                        <div class="form-group" [ngClass]="{'has-error': runValidation && !controls.firstName.valid}">
+                            <label class="control-label" for="fname">First Name *</label>
+                            <input type="text" class="form-control" id="fname" [ngModel]="user.firstName"
+                                   formControlName="firstName">
+                            <span class="error-container" *ngIf="runValidation">
+          <span class="help-block" *ngIf="controls.firstName.hasError('required')">This field is required</span>
+        </span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6">
+                        <div class="form-group" [ngClass]="{'has-error': runValidation && !controls.lastName.valid}">
+                            <label class="control-label" for="lname">Last Name *</label>
+                            <input type="text" class="form-control" id="lname" [ngModel]="user.lastName"
+                                   formControlName="lastName">
+                            <span class="error-container" *ngIf="runValidation">
+          <span class="help-block" *ngIf="controls.lastName.hasError('required')">This field is required</span>
+        </span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div class="form-group">
+                    <label class="control-label" for="address1">Address</label>
+                    <input type="text" class="form-control" id="address1" [ngModel]="user.address1"
+                           formControlName="address1">
+                </div>
+
+                <div class="form-group">
+                    <!--<label class="control-label" for="address2">Address 2</label>-->
+                    <input type="text" class="form-control" id="address2" [ngModel]="user.address2"
+                           formControlName="address2">
+                </div>
+
+                <div class="form-group">
+                    <!--<label class="control-label" for="address2">Address 2</label>-->
+                    <input type="text" class="form-control" id="address2" [ngModel]="user.address3"
+                           formControlName="address3">
+                </div>
+
+
+                <div class="row">
+
+                    <div class="col-md-5">
+                        <div class="form-group">
+                            <label class="control-label" for="city">City</label>
+                            <input type="text" class="form-control" id="city" [ngModel]="user.city"
+                                   formControlName="city">
+                        </div>
+                    </div>
+
+                    <div class="col-md-3 col-sm-4">
+                        <div class="form-group">
+                            <label class="control-label" for="state">State</label>
+                            <select class="form-control" id="state" [ngModel]="user.state" formControlName="state">
+                                <option>FL</option>
+                                <option>GA</option>
+                                <option>SC</option>
+                                <option>NC</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-4">
+                        <div class="form-group">
+                            <label class="control-label" for="zip">Zip</label>
+                            <input type="text" class="form-control" id="zip" [ngModel]="user.zipCode"
+                                   formControlName="zipCode">
+                        </div>
+                    </div>
+
+                </div>
+
+                <hr>
+
+                <div class="row">
+
+                    <div class="col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label" for="mphone">Mobile Phone</label>
+                            <input type="text" class="form-control" id="mphone" [ngModel]="user.mobilePhone"
+                                   formControlName="mobilePhone">
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6">
+                        <div class="form-group">
+                            <label class="control-label" for="hphone">Home Phone</label>
+                            <input type="text" class="form-control" id="hphone" [ngModel]="user.homePhone"
+                                   formControlName="homePhone">
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="col-md-5 col-md-offset-1 col-sm-5 col-sm-offset-1">
+
+                <p class="visible-xs-block">&nbsp;</p>
+
+                <div class="form-group" [ngClass]="{'has-error': runValidation && !controls.email.valid}">
+                    <label class="control-label" for="email">Email *</label>
+                    <input type="text" class="form-control" id="email" [ngModel]="user.email" formControlName="email">
+
+
+                    <span class="help-block" *ngIf="!runValidation || controls.email.valid">user@example.com</span>
+
+                    <span class="error-container" *ngIf="runValidation">
+      <span class="help-block" *ngIf="controls.email.hasError('required')">This field is required</span>
+      <span class="help-block"
+            *ngIf="controls.email.hasError('invalidEmailAddress')">Please enter a valid email address</span>
+    </span>
+                </div>
+
+                <div class="form-group" [ngClass]="{
+  'has-error': runValidation && !controls.emailConfirm.valid,
+  'has-error-mismatch': runValidation && form.hasError('mismatchedEmails')
+  }">
+                    <label class="control-label" for="email-confirm">Confirm Email *</label>
+                    <input type="text" class="form-control" id="email-confirm" formControlName="emailConfirm">
+                    <span class="error-container" *ngIf="runValidation">
+      <span class="help-block" *ngIf="controls.emailConfirm.hasError('required')">This field is required</span>
+      <span class="help-block" *ngIf="controls.emailConfirm.hasError('invalidEmailAddress')">Please enter a valid email address</span>
+      <span class="help-block" *ngIf="runValidation && form.hasError('mismatchedEmails')">Your confirmation email address does not match</span>
+    </span>
+                </div>
+
+                <div class="form-group" [ngClass]="{'has-error': runValidation && !controls.password.valid}">
+                    <label class="control-label" for="password">Password *</label>
+                    <input type="text" class="form-control" id="password" [ngModel]="user.password"
+                           formControlName="password">
+
+                    <span class="help-block"
+                          *ngIf="!runValidation || controls.password.valid">(8 to 25 characters)</span>
+
+                    <span class="error-container" *ngIf="runValidation">
+      <span class="help-block" *ngIf="controls.password.hasError('required')">This field is required</span>
+      <span class="help-block" *ngIf="controls.password.hasError('invalidPassword')">Your password must have a minimum of 8 characters</span>
+    </span>
+                </div>
+
+                <div class="form-group" [ngClass]="{
+  'has-error': runValidation && !controls.passwordConfirm.valid,
+  'has-error-mismatch': runValidation && form.hasError('mismatchedPasswords')
+  }">
+                    <label class="control-label" for="password-confirm">Confirm Password *</label>
+                    <input type="text" class="form-control" id="password-confirm" formControlName="passwordConfirm">
+                    <span class="error-container" *ngIf="runValidation">
+      <span class="help-block" *ngIf="controls.passwordConfirm.hasError('required')">This field is required</span>
+      <span class="help-block" *ngIf="controls.passwordConfirm.hasError('invalidPassword')">Your password must have a minimum of 8 characters</span>
+      <span class="help-block" *ngIf="runValidation && form.hasError('mismatchedPasswords')">Your confirmation password does not match</span>
+    </span>
+                </div>
+
+                <p>&nbsp;</p>
+
+            </div>
+
         </div>
-        
 
-          </div>
-          <div class="col-md-12 col-sm-6">
 
-        
-        <div class="form-group">
-          <label for="topics">Topics of Interest</label>
-          <select multiple class="form-control multi-height" id="topics" [ngModel]="user.topics"  formControlName="topics">
-            <option *ngFor="let it of options.topics" value={{it.value}} [innerHTML]="it.label"></option>
-          </select>
+        <h2>Content Preferences</h2>
+
+        <hr class="section">
+
+        <p>&nbsp;</p>
+
+        <div class="row">
+
+            <div class="col-md-3 col-md-push-0 col-sm-5 col-sm-push-7">
+
+                <h4>Email Subscriptions</h4>
+
+                <hr>
+
+                <div class="radio-pref">
+
+                    <checkbox-group formControlName="alertsEmail" [optionsData]="options.alerts.email"></checkbox-group>
+
+                    <hr>
+
+                    <checkbox-group formControlName="alertsMarina"
+                                    [optionsData]="options.alerts.marina"></checkbox-group>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="col-md-4 col-md-offset-1 col-md-pull-0 col-sm-6 col-sm-pull-5">
+
+                <p class="visible-xs-block">&nbsp;</p>
+
+                <h4>Mobile Alerts</h4>
+
+                <hr>
+
+                <!--
+                <div class="alert-pref">
+
+                <div class="toggle-container">
+                <div class="toggle-text">Recycling Pickup Reminder</div>
+                <div class="toggle-switch-right">
+                <div class="toggle-switch">
+                <input type="checkbox" ngControl="recyclingReminders" name="" class="toggle-switch-checkbox" id="alert-recycling">
+                <label class="toggle-switch-label" for="alert-recycling"></label>
+                </div>
+                </div>
+                </div>
+
+                <hr>
+
+                <div class="toggle-container">
+                <div class="toggle-text">Transit Rider Alerts</div>
+                <div class="toggle-switch-right">
+                <div class="toggle-switch">
+                <input type="checkbox" ngControl="transitAlerts" name="" class="toggle-switch-checkbox" id="alert-transit" data-target="#modal-transit-options">
+                <!- <input type="checkbox" name="" class="toggle-switch-checkbox" id="alert-transit" data-toggle="modal" data-target="#modal-transit-options">->
+                <label class="toggle-switch-label" for="alert-transit"></label>
+                </div>
+                </div>
+                </div>
+
+                <div class="alert-preferences"><small><a href="#" data-toggle="modal" data-target="#modal-transit-options">Edit Preferences</a></small></div>
+
+                <hr>
+
+                <div class="toggle-container">
+                <div class="toggle-text">Emergency Alerts</div>
+                <div class="toggle-switch-right">
+                <div class="toggle-switch">
+                <input type="checkbox" ngControl="emergencyAlerts" name="" class="toggle-switch-checkbox" id="alert-emergency" data-target="#modal-emergency-options">
+                <!- <input type="checkbox" name="" class="toggle-switch-checkbox" id="alert-emergency" data-toggle="modal" data-target="#modal-emergency-options">->
+                <label class="toggle-switch-label" for="alert-emergency"></label>
+                </div>
+                </div>
+                </div>
+
+                <div class="alert-preferences"><small><a href="#" data-toggle="modal" data-target="#modal-emergency-options">Edit Preferences</a></small></div>
+
+                <hr>
+
+                <div class="toggle-container">
+                <div class="toggle-text">Marina Alerts</div>
+                <div class="toggle-switch-right">
+                <div class="toggle-switch">
+                <input type="checkbox" ngControl="marinaAlerts" name="" class="toggle-switch-checkbox" id="alert-marina" data-target="#modal-marina-options">
+                <!- <input type="checkbox" name="" class="toggle-switch-checkbox" id="alert-marina" data-toggle="modal" data-target="#modal-marina-options">->
+                <label class="toggle-switch-label" for="alert-marina"></label>
+                </div>
+                </div>
+                </div>
+
+                <div class="alert-preferences"><small><a href="#" data-toggle="modal" data-target="#modal-marina-options">Edit Preferences</a></small></div>
+
+                <hr>
+
+                </div>
+
+                -->
+
+            </div>
+
+
+            <div class="col-md-3 col-md-offset-1 col-sm-12">
+
+                <hr class="visible-sm-block">
+
+                <p class="visible-xs-block">&nbsp;</p>
+
+                <div class="form-group">
+                    <label for="language">Language Preference</label>
+                    <select class="form-control max300" id="language" [ngModel]="user.language"
+                            formControlName="language">
+                        <option *ngFor="let language of options.languages" value={{language.value}}>{{language.label}}
+                        </option>
+                    </select>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-12 col-sm-6">
+
+
+                        <div class="form-group">
+                            <label for="agencies">Organizations of Interest</label>
+                            <select multiple class="form-control multi-height" id="organizations"
+                                    [ngModel]="user.organizations" formControlName="organizations">
+                                <option *ngFor="let org of options.organizations" value={{org.mduid}}>{{org.name}}
+                                </option>
+                            </select>
+                        </div>
+
+
+                    </div>
+                    <div class="col-md-12 col-sm-6">
+
+
+                        <div class="form-group">
+                            <label for="topics">Topics of Interest</label>
+                            <select multiple class="form-control multi-height" id="topics" [ngModel]="user.topics"
+                                    formControlName="topics">
+                                <option *ngFor="let it of options.topics" value={{it.value}}
+                                        [innerHTML]="it.label"></option>
+                            </select>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+
         </div>
-        
 
-          </div>
+
+        <hr class="section">
+
+        <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+                <button type="submit" class="btn btn-primary btn-block">Register</button>
+            </div>
         </div>
 
-    </div>
+        <hr class="section">
 
-</div>
+        <div style="text-align: center">
+            <button type="button" class="btn btn-primary" (click)="updateUser()">Update User</button>
+        </div>
 
+    </form>
 
     <hr class="section">
 
     <div class="row">
-      <div class="col-md-4 col-md-offset-4">
-        <button type="submit" class="btn btn-primary btn-block">Register</button>
-      </div>
+
+        <div class="col-md-6 col-sm-6">
+            <h3>Form Values</h3>
+            <pre>{{ form.value | json }}</pre>
+        </div>
+
+        <div class="col-md-6 col-sm-6">
+            <h3>User Values</h3>
+            <pre>{{ user | json }}</pre>
+        </div>
+
     </div>
-
-    <hr class="section">
-
-    <div style="text-align: center">
-    <button type="button" class="btn btn-primary" (click)="updateUser()">Update User</button>
-    </div>
-
-  </form>
-
-<hr class="section">
-
-<div class="row">
-  
-  <div class="col-md-6 col-sm-6">
-  <h3>Form Values</h3>
-  <pre>{{ form.value | json }}</pre>
-  </div>
-
-  <div class="col-md-6 col-sm-6">
-  <h3>User Values</h3>
-  <pre>{{ user | json }}</pre>
-  </div>
-
-</div>
 
 
 </div> <!-- /container -->
