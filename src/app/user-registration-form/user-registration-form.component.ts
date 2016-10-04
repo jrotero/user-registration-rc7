@@ -53,10 +53,11 @@ export class UserRegistrationFormComponent implements OnInit {
       language: ['spanish'],
       organizations: [[]],
       topics: [[]],
-      alerts: [this.user.alerts],
+
       alertsEmail: [this.user.alerts.email],
       alertsMarina: [this.user.alerts.marina],
-      alertsEmergency: [this.user.alerts.emergency]
+      alertsEmergency: [this.user.alerts.emergency],
+      alertsRecycling: [this.user.alerts.recycling]
 
     }, {validator: this.pps.matchingFields('email', 'emailConfirm', 'password', 'passwordConfirm')});
   }
@@ -73,7 +74,6 @@ export class UserRegistrationFormComponent implements OnInit {
       
       // console.log(this.form.value);
       // alert('Form is ready to be submitted');
-
 
       this.user = this.form.value;
 
@@ -123,15 +123,24 @@ export class UserRegistrationFormComponent implements OnInit {
       ],
 
       emergency: [
-        {
+        /*{
           id: "10031",
           label: "Emergency 2",
           description: ""
-        }
-      ]
+        }*/
+      ], 
+
+      recycling: [
+       /*{
+          id: "10040",
+          label: "Recycling Pickup Reminder",
+          description: ""
+        }*/
+        ],
+
+      transit: []
 
     });
-
 
   	this.buildForm();
 

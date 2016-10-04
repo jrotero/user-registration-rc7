@@ -187,10 +187,6 @@
 
         <checkbox-group formControlName="alertsEmail" [optionsData]="options.alerts.email"></checkbox-group>
 
-        <hr>
-
-        <checkbox-group formControlName="alertsMarina" [optionsData]="options.alerts.marina"></checkbox-group>
-
         </div>
 
 
@@ -203,72 +199,20 @@
 
         <h4>Mobile Alerts</h4>
 
-        <hr>
+        <!-- ////////////////////////////////////////////////
 
-        <!--
-        <div class="alert-pref">
+        ALERT GROUP COMPONENTS
 
-        <div class="toggle-container">
-        <div class="toggle-text">Recycling Pickup Reminder</div>
-        <div class="toggle-switch-right">
-        <div class="toggle-switch">
-        <input type="checkbox" ngControl="recyclingReminders" name="" class="toggle-switch-checkbox" id="alert-recycling">
-        <label class="toggle-switch-label" for="alert-recycling"></label>
-        </div>
-        </div>
-        </div>
+        ///////////////////////////////////////////////// -->
 
         <hr>
 
-        <div class="toggle-container">
-        <div class="toggle-text">Transit Rider Alerts</div>
-        <div class="toggle-switch-right">
-        <div class="toggle-switch">
-        <input type="checkbox" ngControl="transitAlerts" name="" class="toggle-switch-checkbox" id="alert-transit" data-target="#modal-transit-options">
-        <!- <input type="checkbox" name="" class="toggle-switch-checkbox" id="alert-transit" data-toggle="modal" data-target="#modal-transit-options">->
-        <label class="toggle-switch-label" for="alert-transit"></label>
-        </div>
-        </div>
-        </div>
-
-        <div class="alert-preferences"><small><a href="#" data-toggle="modal" data-target="#modal-transit-options">Edit Preferences</a></small></div>
+        <alert-group formControlName="alertsMarina" [optionsData]="options.alerts.marina" [alertLabel]="'Marina Alerts'"></alert-group>
 
         <hr>
 
-        <div class="toggle-container">
-        <div class="toggle-text">Emergency Alerts</div>
-        <div class="toggle-switch-right">
-        <div class="toggle-switch">
-        <input type="checkbox" ngControl="emergencyAlerts" name="" class="toggle-switch-checkbox" id="alert-emergency" data-target="#modal-emergency-options">
-        <!- <input type="checkbox" name="" class="toggle-switch-checkbox" id="alert-emergency" data-toggle="modal" data-target="#modal-emergency-options">->
-        <label class="toggle-switch-label" for="alert-emergency"></label>
-        </div>
-        </div>
-        </div>
-
-        <div class="alert-preferences"><small><a href="#" data-toggle="modal" data-target="#modal-emergency-options">Edit Preferences</a></small></div>
-
-        <hr>
-
-        <div class="toggle-container">
-        <div class="toggle-text">Marina Alerts</div>
-        <div class="toggle-switch-right">
-        <div class="toggle-switch">
-        <input type="checkbox" ngControl="marinaAlerts" name="" class="toggle-switch-checkbox" id="alert-marina" data-target="#modal-marina-options">
-        <!- <input type="checkbox" name="" class="toggle-switch-checkbox" id="alert-marina" data-toggle="modal" data-target="#modal-marina-options">->
-        <label class="toggle-switch-label" for="alert-marina"></label>
-        </div>
-        </div>
-        </div>
-
-        <div class="alert-preferences"><small><a href="#" data-toggle="modal" data-target="#modal-marina-options">Edit Preferences</a></small></div>
-
-        <hr>
-
-        </div>
-
-        -->
-
+        <alert-group formControlName="alertsEmergency" [optionsData]="options.alerts.emergency" [alertLabel]="'Emergency Alerts'"></alert-group>
+        
     </div>
 
 
