@@ -18,11 +18,15 @@ export class User {
     public organizations: string [];
     public topics: string [];
 
+
     public alerts: {
         email: any [],
         marina: any [],
-        emergency: any []
+        emergency: any [],
+        recycling:any [],
+        transit:any []
     };
+
 
 
     constructor(firstName?: string,
@@ -44,7 +48,9 @@ export class User {
                 alerts?: {
                     email: any [],
                     marina: any [],
-                    emergency: any []
+                    emergency: any [],
+                    recycling:any [],
+                    transit:any []
                 }) {
         this.firstName = firstName || '';
         this.lastName = lastName || '';
@@ -63,8 +69,7 @@ export class User {
         this.language = language || '';
         this.organizations = organizations || [];
         this.topics = topics || [];
-
-        this.alerts = alerts || {email: [], marina: [], emergency: []};
+        this.alerts = alerts || {email:[], marina:[], emergency:[], recycling:[], transit:[]};
     }
 
 }

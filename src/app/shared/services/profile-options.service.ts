@@ -1,9 +1,7 @@
-import {Injectable} from '@angular/core';
+import {Injectable} from "@angular/core";
 
 @Injectable()
 export class ProfileOptionsService {
-
-
 
     public languages = [
         {
@@ -110,17 +108,8 @@ export class ProfileOptionsService {
         {
             label: 'Social Services',
             value: 'social-services'
-        },
-        {
-            label: 'Recreation &amp; Culture',
-            value: 'recreation-culture'
-        },
-        {
-            label: 'Transportation &amp; Travel',
-            value: 'transportation-travel'
         }
     ];
-
 
     public alerts = {
 
@@ -182,14 +171,30 @@ export class ProfileOptionsService {
 
         emergency: [
             {
-                id: '10030',
-                label: 'Emergency 1',
-                description: ''
+                id: "10030",
+                label: "Emergency Alerts",
+                description: ""
             },
             {
-                id: '10031',
-                label: 'Emergency 2',
-                description: ''
+                id: "10031",
+                label: "Ashley Nicole Valdes Public Safety Alerts",
+                description: ""
+            }
+        ],
+
+        recycling: [
+            {
+                id: "10040",
+                label: "Recycling Pickup Reminder",
+                description: ""
+            }
+        ],
+
+        transit: [
+            {
+                id: "10050",
+                label: "Transit",
+                description: ""
             }
         ]
 
