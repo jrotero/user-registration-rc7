@@ -19,7 +19,7 @@ export class ProfileOptionsService {
             value: 'creole'
         }
 
-    ]
+    ];
 
     public organizations = [
         {
@@ -72,7 +72,7 @@ export class ProfileOptionsService {
             'mduid': 'org146299202858021',
             'slug': 'elections'
         }
-    ]
+    ];
 
     public topics = [
         {
@@ -119,7 +119,7 @@ export class ProfileOptionsService {
             label: 'Transportation &amp; Travel',
             value: 'transportation-travel'
         }
-    ]
+    ];
 
 
     public alerts = {
@@ -193,7 +193,7 @@ export class ProfileOptionsService {
             }
         ]
 
-    }
+    };
 
 
     constructor() {

@@ -1,6 +1,5 @@
 /* tslint:disable:no-unused-variable */
 
-import {addProviders} from "@angular/core/testing";
 import {User} from "./user";
 
 describe('User', () => {
