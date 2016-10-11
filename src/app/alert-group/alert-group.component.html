@@ -5,9 +5,8 @@
 	<div class="toggle-text">{{alertLabel}}</div>
 	<div class="toggle-switch-right">
 	<div class="toggle-switch">
-		<label class="toggle-switch-label">
-		<input type="checkbox" [(ngModel)]="toggle" (ngModelChange)="toggleState($event.target)" name="{{alertLabel}}" value="{{alertLabel}}" class="toggle-switch-checkbox">
-	</label>
+	<input type="checkbox" [(ngModel)]="toggle" (ngModelChange)="toggleState($event.target)" name="{{alertLabel}}" value="{{alertLabel}}" class="toggle-switch-checkbox" [attr.id]="alertLabel">
+	<label class="toggle-switch-label" [attr.for]="alertLabel"></label>
 	</div>
 	</div>
 	</div>
