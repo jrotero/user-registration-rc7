@@ -1,5 +1,6 @@
-import { Component, OnInit, forwardRef, Input } from '@angular/core';
+import { Component, OnInit, forwardRef, Input, ViewChild  } from '@angular/core';
 import { FormControl, ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ModalDirective } from 'ng2-bootstrap/ng2-bootstrap';
 
 @Component({
   selector: 'alert-group',
@@ -17,13 +18,13 @@ export class AlertGroupComponent implements ControlValueAccessor {
 
   @Input() optionsData = [];
   @Input() alertLabel = 'Alert Group';
+
+  // required to access child modals ---
+  @ViewChild('lgModal') public lgModal:ModalDirective;
 	
 	// array of selected options to be pushed back to formGroup ---
 	selOptions = [];
 	toggle: boolean = false;
-
-	// temporary modal placeholder
-	modal: boolean = false;
 
 	constructor() {} // SUPER LEAN!
 
@@ -59,12 +60,14 @@ export class AlertGroupComponent implements ControlValueAccessor {
 				cbOption.checked = true;
 				this.selOptions.push(cbOption);
 
-				this.modal = true;
+				this.lgModal.show();
 
 			} else {
 
 				cbOption.checked = false;
 				this.selOptions = [];
+
+				this.lgModal.hide();
 
 			};
 
@@ -75,15 +78,22 @@ export class AlertGroupComponent implements ControlValueAccessor {
 
 	}
 
-	// for future modal ---
+	// open modal from anchor tag with href="#" ---
 	editPrefs(event){
+
 		event.preventDefault();
-		this.modal = true;
+		this.lgModal.show();
 	}
 
+	// close modal from anchor tag with href="#" ---
 	closeModal(event){
+
 		event.preventDefault();
-		this.modal = false;
+		this.lgModal.hide();
+
+		if (this.selOptions.length < 1){
+			this.toggle = false;
+		}
 	}
 
 	ngOnInit() {}
@@ -97,6 +107,9 @@ export class AlertGroupComponent implements ControlValueAccessor {
 
 				cbOption.checked = true;
 				this.toggle = true; // set toggle to true if ANY options checked ---
+
+				// added to set initial selected options (previously empty until first click) ---
+				this.selOptions.push(cbOption); 
 
 			} else {
 

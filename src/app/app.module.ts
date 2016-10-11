@@ -7,7 +7,8 @@ import {UserRegistrationFormComponent} from "./user-registration-form/user-regis
 import {PrincessPeachService} from "./shared/validators/princess-peach.service";
 import {ProfileOptionsService} from "./shared/services/profile-options.service";
 import {CheckboxGroupComponent} from "./checkbox-group/checkbox-group.component";
-import { AlertGroupComponent } from './alert-group/alert-group.component';
+import {AlertGroupComponent} from './alert-group/alert-group.component';
+import {ModalModule} from 'ng2-bootstrap/ng2-bootstrap';
 
 @NgModule({
     declarations: [
@@ -18,7 +19,8 @@ import { AlertGroupComponent } from './alert-group/alert-group.component';
         BrowserModule,
         ReactiveFormsModule,
         FormsModule,
-        HttpModule
+        HttpModule,
+        ModalModule
     ],
     providers: [PrincessPeachService, ProfileOptionsService],
     bootstrap: [AppComponent]

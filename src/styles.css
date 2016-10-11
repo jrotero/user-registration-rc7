@@ -482,13 +482,17 @@ REGISTRATION FORM
     display: block;
 }
 
-/*
+
 .alert-background {
 	padding: 10px 15px;
-	background-image: url(../images/body_blue_bg.gif);
-    background-repeat: repeat-x;
+    background: #dddddd; /* Old browsers */
+background: -moz-linear-gradient(top, #dddddd 0%, #ffffff 70%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #dddddd 0%,#ffffff 70%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #dddddd 0%,#ffffff 70%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dddddd', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
 }
 
+/*
 .a-emergency {
 	background-image: url(../images/reg-bg-red.jpg);
 }
