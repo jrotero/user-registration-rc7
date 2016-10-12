@@ -53,6 +53,7 @@ export class CheckboxGroupComponent implements ControlValueAccessor {
             if (values.find(x => x.id === cbOption.id)) {
 
                 cbOption.checked = true;
+                this.selOptions.push(cbOption); 
 
             } else {
 
